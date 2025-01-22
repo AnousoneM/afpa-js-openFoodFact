@@ -1,0 +1,15 @@
+.product-img {
+    height: 30vh;
+    width: auto;
+    border: 10px solid white;
+}
+
+.nova-img {
+    height: 5rem;
+    width: auto;
+}
+
+.barcode-img {
+    height: 4rem;
+    width: auto;
+}
