@@ -1,0 +1,22 @@
+{
+  "name": "afpa-js-openfoodfact",
+  "version": "1.0.0",
+  "description": "Application pour lire les codes barres",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "afpa-js-openfoodfact"
+  },
+  "keywords": [
+    "openFoodFact",
+    "codeBar"
+  ],
+  "author": "AnousoneM",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
