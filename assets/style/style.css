@@ -1,6 +1,6 @@
 .product-img {
-    height: 30vh;
-    width: auto;
+    max-height: 50vh;
+    max-width: 100%;
     border: 10px solid white;
 }
 
