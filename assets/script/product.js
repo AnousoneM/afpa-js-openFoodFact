@@ -1,7 +1,7 @@
 
 // nous allons récupérer le paramètre d'URL :
 const urlParams = new URLSearchParams(window.location.search);
-let product = urlParams.get('product');
+let codebar = urlParams.get('codebar');
 
 // message nutriscore
 const nutriscoreMsg = {
@@ -12,57 +12,45 @@ const nutriscoreMsg = {
     e: "Très basse qualité nutritionnelle"
 }
 
+// background nutriscore
+const nutricsoreBg = {
+    a: '#00803d',
+    b: '#87bd25',
+    c: '#ffcc00',
+    d: '#ef7d00',
+    e: '#e63312'
+}
+
 // message novascore
 const novascoreMsg = [
+    "NOVA Non calculé",
     "Aliment non transformés ou minimalement transformés",
     "Ingrédient culinaires transformés",
     "Aliment transformés",
     "Aliment ultra-transformés"
 ]
 
+// background novascore
+const novascoreBg = [
+    // en cours :)
+]
+
 // quaker exemple cruesli
 // product = 3168930010265
 
-fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
+fetch('https://world.openfoodfacts.org/api/v3/product/' + codebar)
     .then(response => response.json())
     .then(data => {
         console.log(data)
-
-        // Nom du produit
-        console.log(data.product.product_name_fr)
-
-        // Numéro du barCode
-        console.log(data.code)
-
-        // Image du produit 
-        console.log(data.product.selected_images.front.display.fr)
-
-        // Nova Group
-        console.log(data.product.nova_group)
-
-        // NutriScore
-        console.log(data.product.nutrition_grade_fr)
-
-        // Nom généric
-        console.log(data.product.generic_name)
-
-        // Quantité
-        console.log(data.product.quantity)
-
-        // Marque
-        console.log(data.product.brands)
-
-        // Catégories
-        console.log(data.product.categories)
 
         showProductDetails(data)
 
     })
 
 
-    function showProductDetails(productData){
-        let htmlElement = ''
-        document.querySelector('#productDetails').innerHTML = `
+function showProductDetails(productData) {
+    let htmlElement = ''
+    document.querySelector('#productDetails').innerHTML = `
                 <h1 class="text-center">${productData.product.product_name_fr}</h1>
 
         <div class="text-center">
@@ -74,7 +62,7 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
             src="${productData.product.selected_images.front.display.fr}"
             alt="${productData.product.product_name_fr}">
 
-        <div class="border border-secondary-subtle rounded my-3 p-2 bg-success-subtle">
+        <div id="nutricsore-div" class="border border-secondary-subtle rounded my-3 p-2">
 
             <div class="row justify-content-center">
                 <div class="col-5">
@@ -89,14 +77,14 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
 
         </div>
 
-        <div class="border border-secondary-subtle rounded my-3 p-2">
+        <div id="novascore-div" class="border border-secondary-subtle rounded my-3 p-2">
 
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <img class="col-2 nova-img" src="assets/img/novascore/nova-${productData.product.nova_group}.svg" alt="">
+                    <img class="col-2 nova-img" src="assets/img/novascore/nova-${productData.product.nova_group == undefined ? 'idk' : productData.product.nova_group}.svg" alt="">
                 </div>
                 <div class="col-9 pt-2 d-flex flex-column justify-content-center text-center">
-                ${novascoreMsg[productData.product.nova_group - 1]}
+                ${novascoreMsg[productData.product.nova_group == undefined ? 0 : productData.product.nova_group]}
                 </div>
             </div>
 
@@ -112,7 +100,7 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                    ${productData.product.generic_name}
+                    ${productData.product.generic_name == '' ? productData.product.product_name : productData.product.generic_name}
                     </div>
                 </div>
             </div>
@@ -125,7 +113,7 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                    ${productData.product.quantity}
+                    ${productData.product.quantity == '' ? 'Non renseigné' : productData.product.quantity}
                     </div>
                 </div>
             </div>
@@ -138,7 +126,7 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <a href="#">${productData.product.brands}</a>
+                        ${productData.product.brands}
                     </div>
                 </div>
             </div>
@@ -161,6 +149,6 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + product)
             recherche</a>
         `
 
-        return htmlElement
+    return htmlElement
 
-    }
+}

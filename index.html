@@ -16,18 +16,31 @@
         <h1>Scan'Meal</h1>
         <p>Dis-mois ce que tu manges ...</p>
 
+        <section class="container" id="demo-content">
+            <div>
+                <button class="btn btn-primary my-1" id="startButton"><i class="bi bi-camera me-2"></i>Camera</button>
+            </div>
+            <div>
+                <video id="video" class="border border-seconadary rounded"></video>
+            </div>
+        </section>
+
         <form action="product.html">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-upc-scan fs-2"></i></span>
-                <input type="text" name="product" class="form-control" placeholder="ex. 08756328756245">
+                <input type="text" name="codebar" id="codebar" class="form-control" placeholder="ex. 08756328756245">
             </div>
             <button class="btn btn-primary col-6">Rechercher</button>
         </form>
 
     </div>
 
+    <!-- chargement des scripts JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="assets/script/script.js"></script>
+    <!-- chargement du script xzing -->
+    <script src="node_modules/@zxing/library/umd/index.js"></script>
+
+    <script src="assets/script/index.js"></script>
 </body>
 
 </html>
