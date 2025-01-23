@@ -15,7 +15,7 @@ window.addEventListener('load', function () {
             }
             if (err && !(err instanceof ZXing.NotFoundException)) {
               console.error(err)
-              document.getElementById('result').textContent = err
+              document.getElementById('codebar').value = err
             }
           })
           console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
