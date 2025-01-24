@@ -12,29 +12,38 @@
 
 <body>
 
-    <div class="container text-center">
-        <h1>Scan'Meal</h1>
-        <p>Dis-mois ce que tu manges ...</p>
+    <header class="bg-success py-2 text-light text-center shadow">
+        <h1 class="libre-barcode-128-text-regular">Scan Read Eat</h1>
+    </header>
+
+    <main class="container text-center">
 
         <section class="container" id="demo-content">
             <div>
-                <button class="btn btn-primary my-1" id="startButton"><i class="bi bi-camera me-2"></i>Camera</button>
+                <button class="btn btn-lg btn-success my-1 col-6" id="startButton"><i
+                        class="bi bi-camera me-2"></i>Camera</button>
             </div>
-            <div>
-                <video id="video" class="border border-seconadary rounded col-10 vh-30"></video>
+            <div class="row">
+                <video id="video" class="border border-danger rounded vh-30"></video>
             </div>
         </section>
 
-        <form action="product.html">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-upc-scan fs-2"></i></span>
-                <input type="text" name="codebar" id="codebar" class="form-control" placeholder="ex. 08756328756245">
-            </div>
-            <button class="btn btn-primary col-6">Rechercher</button>
-        </form>
+        <section>
+            <form action="product.html">
+                <div class="input-group my-4">
+                    <span class="input-group-text" id="inputGroup-sizing-default"><i
+                            class="bi bi-upc-scan fs-2"></i></span>
+                    <input type="text" name="codebar" id="codebar" class="form-control"
+                        placeholder="ex. 08756328756245">
+                </div>
+                <button class="btn btn-lg btn-success col-6"><i class="bi bi-search me-2"></i>Rechercher</button>
+            </form>
+        </section>
 
-    </div>
+    </main>
 
+    <!-- chargement des icones font awesome -->
+    <script src="https://kit.fontawesome.com/e7bc07dee6.js" crossorigin="anonymous"></script>
     <!-- chargement des scripts JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <!-- chargement du script xzing -->

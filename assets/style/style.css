@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+
+.libre-barcode-128-text-regular {
+    font-family: "Libre Barcode 128 Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+}
+
 .product-img {
     max-height: 50vh;
     max-width: 100%;
@@ -13,4 +22,3 @@
     height: 4rem;
     width: auto;
 }
-

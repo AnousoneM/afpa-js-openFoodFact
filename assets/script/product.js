@@ -43,7 +43,15 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + codebar)
     .then(data => {
         console.log(data)
 
-        showProductDetails(data)
+        if (data.status == 'failure') {
+            document.querySelector('#productDetails').innerHTML = `
+                <p class="fs-4 text-center"><b>Produit non référencé</b><br>Veuillez saisir un autre code barre</p>
+                <a href="index.html" class="btn btn-primary btn-lg my-4 col-12"><i class="bi bi-upc-scan me-3"></i>Nouvelle recherche</a>
+            `
+        } else {
+            showProductDetails(data)
+        }
+
 
     })
 
