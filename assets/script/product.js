@@ -13,7 +13,7 @@ const nutriscoreMsg = {
 }
 
 // background nutriscore
-const nutricsoreBg = {
+const nutriscoreBg = {
     a: '#00803d',
     b: '#87bd25',
     c: '#ffcc00',
@@ -71,14 +71,14 @@ function showProductDetails(productData) {
             src="${productData.product.selected_images.front.display.fr}"
             alt="${productData.product.product_name_fr}">
 
-        <div id="nutricsore-div" class="border border-secondary-subtle rounded my-3 p-2">
+        <div id="nutriscore-div" class="shadow-sm rounded my-3 py-3">
 
             <div class="row justify-content-center">
                 <div class="col-5">
                     <img class="img-fluid" src="assets/img/nutriscore/score-${productData.product.nutrition_grade_fr}.svg" alt="">
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
-                    <div class="text-center">
+                    <div class="text-center fw-bold">
                     ${nutriscoreMsg[productData.product.nutrition_grade_fr]}
                     </div>
                 </div>
@@ -86,20 +86,20 @@ function showProductDetails(productData) {
 
         </div>
 
-        <div id="novascore-div" class="border border-secondary-subtle rounded my-3 p-2">
+        <div id="novascore-div" class="bg-light shadow-sm rounded my-3 py-3">
 
             <div class="row justify-content-center">
                 <div class="col-2">
                     <img class="col-2 nova-img" src="assets/img/novascore/nova-${productData.product.nova_group == undefined ? 'idk' : productData.product.nova_group}.svg" alt="">
                 </div>
-                <div class="col-9 pt-2 d-flex flex-column justify-content-center text-center">
+                <div class="col-9 pt-2 d-flex flex-column justify-content-center text-center fw-bold">
                 ${novascoreMsg[productData.product.nova_group == undefined ? 0 : productData.product.nova_group]}
                 </div>
             </div>
 
         </div>
 
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionProduct">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
@@ -107,7 +107,7 @@ function showProductDetails(productData) {
                         Dénomination générique
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionProduct">
                     <div class="accordion-body">
                     ${productData.product.generic_name == '' ? productData.product.product_name : productData.product.generic_name}
                     </div>
@@ -120,7 +120,7 @@ function showProductDetails(productData) {
                         Quantité
                     </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionProduct">
                     <div class="accordion-body">
                     ${productData.product.quantity == '' ? 'Non renseigné' : productData.product.quantity}
                     </div>
@@ -133,7 +133,7 @@ function showProductDetails(productData) {
                         Marques
                     </button>
                 </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionProduct">
                     <div class="accordion-body">
                         ${productData.product.brands}
                     </div>
@@ -146,7 +146,7 @@ function showProductDetails(productData) {
                         Catégories
                     </button>
                 </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionProduct">
                     <div class="accordion-body">
                     ${productData.product.categories}
                     </div>
@@ -157,6 +157,9 @@ function showProductDetails(productData) {
         <a href="index.html" class="btn btn-afpa text-white btn-lg my-4 col-12"><i class="bi bi-upc-scan me-3"></i>Nouvelle
             recherche</a>
         `
+
+    // changement de la couleur du nutriscore
+    document.querySelector('#nutriscore-div').style.backgroundColor = nutriscoreBg[productData.product.nutrition_grade_fr]
 
     return htmlElement
 

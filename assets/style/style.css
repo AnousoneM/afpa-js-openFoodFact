@@ -34,6 +34,10 @@ footer {
     font-size: 3rem;
 }
 
+.height-video {
+    height: 35vh;
+}
+
 .product-img {
     max-height: 50vh;
     max-width: 100%;
