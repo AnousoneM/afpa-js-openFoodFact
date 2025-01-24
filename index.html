@@ -10,25 +10,15 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 
-<body>
+<body class="d-flex flex-column vh-100">
 
-    <header class="bg-success py-2 text-light text-center shadow">
+    <header class="pt-4 pb-3 text-center shadow">
         <h1 class="libre-barcode-128-text-regular">Scan Read Eat</h1>
     </header>
 
-    <main class="container text-center">
+    <main class="container text-center pt-4">
 
-        <section class="container" id="demo-content">
-            <div>
-                <button class="btn btn-lg btn-success my-1 col-6" id="startButton"><i
-                        class="bi bi-camera me-2"></i>Camera</button>
-            </div>
-            <div class="row">
-                <video id="video" class="border border-danger rounded vh-30"></video>
-            </div>
-        </section>
-
-        <section>
+        <section id="section-search">
             <form action="product.html">
                 <div class="input-group my-4">
                     <span class="input-group-text" id="inputGroup-sizing-default"><i
@@ -36,11 +26,29 @@
                     <input type="text" name="codebar" id="codebar" class="form-control"
                         placeholder="ex. 08756328756245">
                 </div>
-                <button class="btn btn-lg btn-success col-6"><i class="bi bi-search me-2"></i>Rechercher</button>
+                <button class="btn btn-afpa text-white btn-lg col-6"><i class="bi bi-search me-2"></i>Rechercher</button>
             </form>
+
+            <hr>
+
+        </section>
+
+
+        <section class="container">
+            <div class="row justify-content-center mt-4 d-none" id="row-video">
+                <video id="video" class="vh-50"></video>
+            </div>
+            <div class="row align-items-middle justify-content-center">
+                <button class="btn btn-afpa text-white btn-lg col-6" id="startButton"><i class="bi bi-camera me-2"></i>Caméra</button>
+                <button class="btn btn-secondary btn-lg mt-3 col-6 d-none" id="cancelButton">Annuler</button>
+            </div>
         </section>
 
     </main>
+
+    <footer class="text-center pt-3 mt-auto">
+        <p>Afpa - DWWM - 2K25</p>
+    </footer>
 
     <!-- chargement des icones font awesome -->
     <script src="https://kit.fontawesome.com/e7bc07dee6.js" crossorigin="anonymous"></script>
