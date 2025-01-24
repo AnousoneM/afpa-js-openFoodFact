@@ -5,11 +5,12 @@ let codebar = urlParams.get('codebar');
 
 // message nutriscore
 const nutriscoreMsg = {
-    a: "Très bonne qualité nutritionnelle",
-    b: "Bonne qualité nutritionnelle",
-    c: "Qualité nutritionnelle moyenne",
-    d: "Moins bonne qualité nutritionnelle",
-    e: "Très basse qualité nutritionnelle"
+    a: 'Très bonne qualité nutritionnelle',
+    b: 'Bonne qualité nutritionnelle',
+    c: 'Qualité nutritionnelle moyenne',
+    d: 'Moins bonne qualité nutritionnelle',
+    e: 'Très basse qualité nutritionnelle',
+    unknown : 'Valeur nutritionnelle inconnue'
 }
 
 // background nutriscore
@@ -18,7 +19,8 @@ const nutriscoreBg = {
     b: '#87bd25',
     c: '#ffcc00',
     d: '#ef7d00',
-    e: '#e63312'
+    e: '#e63312',
+    unknown: '#ffffff'
 }
 
 // message novascore
@@ -75,7 +77,7 @@ function showProductDetails(productData) {
 
             <div class="row justify-content-center">
                 <div class="col-5">
-                    <img class="img-fluid" src="assets/img/nutriscore/score-${productData.product.nutrition_grade_fr}.svg" alt="">
+                    <img class="img-fluid" src="assets/img/nutriscore/score-${productData.product.nutrition_grade_fr == 'unknown' ? 'idk' : productData.product.nutrition_grade_fr}.svg" alt="">
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
                     <div class="text-center fw-bold">
