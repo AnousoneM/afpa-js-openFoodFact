@@ -10,17 +10,19 @@ const nutriscoreMsg = {
     c: 'Qualité nutritionnelle moyenne',
     d: 'Moins bonne qualité nutritionnelle',
     e: 'Très basse qualité nutritionnelle',
-    unknown : 'Valeur nutritionnelle inconnue'
+    unknown : 'Valeur nutritionnelle inconnue',
+    undefined : 'Valeur nutritionnelle inconnue'
 }
 
 // background nutriscore
 const nutriscoreBg = {
-    a: '#00803d',
-    b: '#87bd25',
-    c: '#ffcc00',
-    d: '#ef7d00',
-    e: '#e63312',
-    unknown: '#ffffff'
+    'a': '#00803d',
+    'b': '#87bd25',
+    'c': '#ffcc00',
+    'd': '#ef7d00',
+    'e': '#e63312',
+    'unknown': '#ffffff',
+    'not-applicable' : '#ffffff'
 }
 
 // message novascore
@@ -77,11 +79,11 @@ function showProductDetails(productData) {
 
             <div class="row justify-content-center">
                 <div class="col-5">
-                    <img class="img-fluid" src="assets/img/nutriscore/score-${productData.product.nutrition_grade_fr == 'unknown' ? 'idk' : productData.product.nutrition_grade_fr}.svg" alt="">
+                    <img class="img-fluid" src="assets/img/nutriscore/score-${productData.product.nutrition_grade_fr == 'unknown' || productData.product.nutrition_grade_fr == 'not-applicable' ? 'idk' : productData.product.nutrition_grade_fr}.svg" alt="">
                 </div>
                 <div class="col-6 d-flex flex-column justify-content-center">
                     <div class="text-center fw-bold">
-                    ${nutriscoreMsg[productData.product.nutrition_grade_fr]}
+                    ${nutriscoreMsg[productData.product.nutrition_grade_fr] ?? 'Non évalué'}
                     </div>
                 </div>
             </div>
