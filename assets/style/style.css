@@ -53,3 +53,15 @@ footer {
     height: 4rem;
     width: auto;
 }
+
+.grocery-img {
+    opacity: 0.65;
+    width: 90%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.nodata-img {
+    width: 90%;
+    height: auto;
+}

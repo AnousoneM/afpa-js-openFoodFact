@@ -52,6 +52,10 @@ fetch('https://world.openfoodfacts.org/api/v3/product/' + codebar)
                 <p class="fs-4 text-center">Produit non trouvé</p>
                 <p class="fs-4 fw-bold text-center">${codebar}</p>
                 <a href="index.html" class="btn btn-afpa text-white btn-lg my-3 col-12"><i class="bi bi-upc-scan me-3"></i>Nouvelle recherche</a>
+                <section class="text-center mt-5">
+                    <img class="nodata-img"src="assets/img/no-data.png" alt="no-data picture">
+                </section>
+
             `
         } else {
             showProductDetails(data)
