@@ -1,10 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 
+body {
+    background-color: #9ad0b2;
+}
+
+header,
+footer {
+    background-color: #69b42d;
+}
+
+header > h1 {
+    font-size: 3.5rem !important;
+}
+
+footer {
+    font-size: 0.75rem;
+}
+
+.accordion-button {
+    background-color: #dce176 !important;
+    color: black !important;
+}
+
+.btn-afpa {
+    background-color: #ac135a !important;
+    color: white;
+}
+
 .libre-barcode-128-text-regular {
     font-family: "Libre Barcode 128 Text", serif;
     font-weight: 400;
     font-style: normal;
     font-size: 3rem;
+}
+
+.height-video {
+    height: 35vh;
 }
 
 .product-img {
